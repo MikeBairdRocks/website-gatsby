@@ -17,7 +17,7 @@ type PostProps = {
   }
 };
 
-const Post:React.FunctionComponent<PostProps> = (props) => {
+const Post: React.FunctionComponent<PostProps> = (props) => {
   useEffect(() => {
   }, []);
 
@@ -32,20 +32,19 @@ const Post:React.FunctionComponent<PostProps> = (props) => {
     tags: props.data.post?.frontmatter?.tags as string[]
   };
 
-  const siteTitle = props.data.site?.siteMetadata?.title ?? "";
   const imageSource = getSrc(post.image);
 
   return (
     <Layout navbarTransparent={true}>
-      <Meta title={post.title} description={post.description} url={`blog/${post.slug}`} image={imageSource} />
+      <Meta title={post.title} description={post.description} url={`blog/${post.slug}`} image={imageSource}/>
 
       <HeroSplash label={post.title} image={post.image} minHeight="50vh">
         <h1 className="text-white font-semibold text-5xl">{post.title}</h1>
         <p className="text-sm font-bold mt-5 text-gray-400">
-          <Date value={post.date} /> • {post.readingTime}
+          <Date value={post.date}/> • {post.readingTime}
         </p>
         <p className="mt-5 text-indigo-500 hover:text-indigo-600">
-          <TagLinks tags={post.tags} />
+          <TagLinks tags={post.tags}/>
         </p>
       </HeroSplash>
 
@@ -59,29 +58,14 @@ const Post:React.FunctionComponent<PostProps> = (props) => {
 };
 
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String! = "writing-clean-code") {
+    query BlogPostBySlug($slug: String!) {
         site {
             siteMetadata {
-                title
+                ...SiteMetadata
             }
         }
         post: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
-            id
-            excerpt(pruneLength: 160)
-            html
-            timeToRead
-            frontmatter {
-                title
-                description
-                tags
-                slug
-                date
-                image {
-                    childImageSharp {
-                        gatsbyImageData(height: 300, aspectRatio: 1.778)
-                    }
-                }
-            }
+            ...Post
         }
     }
 `;

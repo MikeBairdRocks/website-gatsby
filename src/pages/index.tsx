@@ -4,15 +4,23 @@ import {HeroSplashProps} from "../components/HeroSplash";
 import {graphql, useStaticQuery} from "gatsby";
 import {IGatsbyImageData} from "gatsby-plugin-image";
 import BlogCard from "../components/Blog/BlogCard";
-import {HomeQuery, MarkdownRemark} from "../../types/graphql-types";
+import {HomeQuery, MarkdownRemark, PostFeaturedFragment, PostFragment} from "../../types/graphql-types";
 
-const Index = () => {
+const Index: React.FunctionComponent = (props) => {
   const data = useStaticQuery<HomeQuery>(graphql`
-      query Home {  
+      query Home {      
           site {
               siteMetadata {
+                  title
+                  description
+                  siteUrl
                   author {
                       name
+                  }
+                  social {
+                      type
+                      url
+                      username
                   }
               }
           }
@@ -23,34 +31,29 @@ const Index = () => {
           }
           featured: allMarkdownRemark(
               sort: {fields: [frontmatter___date], order: DESC}
-              limit: 4
+              filter: {frontmatter: {date: {ne: null}}}
+              limit: 1
           ) {
               nodes {
-                  frontmatter {
-                      author
-                      title
-                      tags
-                      slug
-                      description
-                      date
-                      image {
-                          childImageSharp {
-                              gatsbyImageData(
-                                  height: 300
-                                  aspectRatio: 1.778
-                              )
-                          }
-                      }
-                  }
-                  timeToRead
+                  ...PostFeatured
+              }
+          }
+          posts: allMarkdownRemark(
+              sort: {fields: [frontmatter___date], order: DESC}
+              filter: {frontmatter: {date: {ne: null}}}
+              skip: 1
+              limit: 3
+          ) {
+              nodes {
+                  ...Post
               }
           }
       }
   `);
 
-  const image: IGatsbyImageData = data.splashImage?.childImageSharp?.gatsbyImageData ?? {} as IGatsbyImageData;
-  const featuredPost = data.featured?.nodes[0];
-  const posts = data.featured.nodes.filter((x, i) => i != 0);
+  const image = data.splashImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
+  const featuredPost = data.featured?.nodes[0] as MarkdownRemark;
+  const posts = data.posts.nodes as MarkdownRemark[];
 
   const splash: HeroSplashProps = {
     label: "Programmer's Laptop",
@@ -67,12 +70,12 @@ const Index = () => {
       <section className="-mt-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
-            <BlogCard post={featuredPost as MarkdownRemark} featured={true} />
+            <BlogCard post={featuredPost} featured={true} />
 
             {posts.map(post => {
               return (
                 <div key={post.frontmatter?.slug} className="flex w-full md:w-4/12 px-4">
-                  <BlogCard post={post as MarkdownRemark} featured={false} />
+                  <BlogCard post={post} featured={false} />
                 </div>
               );
             })}

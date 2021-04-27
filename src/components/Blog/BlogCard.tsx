@@ -7,9 +7,9 @@ import {MarkdownRemark} from "../../../types/graphql-types";
 import TagLinks from "./TagLinks";
 
 type BlogCardProps = {
-  post: MarkdownRemark
-  featured?: boolean
-  descriptionLimit?: number
+  post: MarkdownRemark;
+  featured?: boolean;
+  descriptionLimit?: number;
 };
 
 const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
