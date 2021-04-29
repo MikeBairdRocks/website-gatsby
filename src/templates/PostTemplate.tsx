@@ -17,7 +17,7 @@ type PostProps = {
   }
 };
 
-const Post: React.FunctionComponent<PostProps> = (props) => {
+const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
   useEffect(() => {
   }, []);
 
@@ -57,7 +57,7 @@ const Post: React.FunctionComponent<PostProps> = (props) => {
   );
 };
 
-export const pageQuery = graphql`
+export const postQuery = graphql`
     query BlogPostBySlug($slug: String!) {
         site {
             siteMetadata {
@@ -70,4 +70,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default Post;
+export default PostTemplate;

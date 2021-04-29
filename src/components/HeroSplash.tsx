@@ -9,7 +9,7 @@ export type HeroSplashProps = {
 };
 
 const HeroSplash: React.FunctionComponent<HeroSplashProps> = (props) => {
-  const minHeight = props.minHeight ?? "75vh";
+  const minHeight = props.minHeight ?? "30vh";
   const opacity = props.opacity ?? "opacity-75";
 
   return (
@@ -26,9 +26,7 @@ const HeroSplash: React.FunctionComponent<HeroSplashProps> = (props) => {
       <div className="container relative mx-auto">
         <div className="items-center flex flex-wrap">
           <div className="w-full px-4 ml-auto mr-auto text-center">
-            <div className="pr-12">
-              {props.children}
-            </div>
+            {props.children}
           </div>
         </div>
       </div>

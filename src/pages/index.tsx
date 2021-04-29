@@ -4,7 +4,7 @@ import {HeroSplashProps} from "../components/HeroSplash";
 import {graphql, useStaticQuery} from "gatsby";
 import {IGatsbyImageData} from "gatsby-plugin-image";
 import BlogCard from "../components/Blog/BlogCard";
-import {HomeQuery, MarkdownRemark, PostFeaturedFragment, PostFragment} from "../../types/graphql-types";
+import {HomeQuery, MarkdownRemark} from "../../types/graphql-types";
 
 const Index: React.FunctionComponent = (props) => {
   const data = useStaticQuery<HomeQuery>(graphql`

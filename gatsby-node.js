@@ -1,5 +1,29 @@
+const config = {
+  PostsPerPage: 1
+};
+
+const createPaging = (actions, posts) => {
+  const template = require.resolve("./src/templates/BlogTemplate.tsx");
+  const limit = config.PostsPerPage;
+  const pageCount = Math.ceil(posts.length / limit);
+
+  Array.from({length: pageCount}).forEach((_, i) => {
+    console.log(pageCount);
+    actions.createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: template,
+      context: {
+        limit: limit,
+        skip: i * limit,
+        totalPages: pageCount,
+        currentPage: i + 1
+      }
+    });
+  });
+};
+
 const createPosts = (actions, posts) => {
-  const postTemplate = require.resolve("./src/templates/post.tsx");
+  const postTemplate = require.resolve("./src/templates/PostTemplate.tsx");
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
@@ -18,8 +42,8 @@ const createPosts = (actions, posts) => {
 };
 
 const createTags = (actions, tags) => {
-  const tagTemplate = require.resolve("./src/templates/tag.tsx");
-  tags.forEach((tag, index) => {
+  const tagTemplate = require.resolve("./src/templates/TagTemplate.tsx");
+  tags.forEach(tag => {
     const path = `/tag/${tag}`;
     actions.createPage({
       path: path,
@@ -60,4 +84,5 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   createTags(actions, data.tags.distinct);
   createPosts(actions, data.posts.edges);
+  createPaging(actions, data.posts.edges);
 }

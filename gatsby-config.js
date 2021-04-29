@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        path: `./content/data/`,
       },
     },
     {
@@ -98,6 +98,6 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
-    },
+    }
   ],
 };

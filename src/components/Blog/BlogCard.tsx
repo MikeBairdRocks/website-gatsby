@@ -25,7 +25,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
   const author = frontmatter?.author as string;
   const title = frontmatter?.title ?? "";
   const description = frontmatter?.description ?? "";
-  const slug = `blog/${frontmatter?.slug}` ?? "";
+  const slug = `/blog/${frontmatter?.slug}` ?? "";
   const date = frontmatter?.date ?? "";
   const readingTime = `${post?.timeToRead} MIN READ` ?? "";
   const image: IGatsbyImageData = frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
@@ -48,7 +48,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
           </div>*/}
           <div className="flex items-center space-x-3 mt-10">
             <div className="inline-flex w-10 h-10">
-              <StaticImage className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird2.jpg" alt={author} />
+              <StaticImage className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird.jpg" alt={author} />
             </div>
             <div>
               <p className={headTextColor}>{author}</p>
