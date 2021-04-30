@@ -5,6 +5,7 @@ import {graphql, useStaticQuery} from "gatsby";
 import {IGatsbyImageData} from "gatsby-plugin-image";
 import BlogCard from "../components/Blog/BlogCard";
 import {HomeQuery, MarkdownRemark} from "../../types/graphql-types";
+import BlogList from "../components/Blog/BlogList";
 
 const Index: React.FunctionComponent = (props) => {
   const data = useStaticQuery<HomeQuery>(graphql`
@@ -29,20 +30,11 @@ const Index: React.FunctionComponent = (props) => {
                   gatsbyImageData
               }
           }
-          featured: allMarkdownRemark(
-              sort: {fields: [frontmatter___date], order: DESC}
-              filter: {frontmatter: {date: {ne: null}}}
-              limit: 1
-          ) {
-              nodes {
-                  ...PostFeatured
-              }
-          }
           posts: allMarkdownRemark(
               sort: {fields: [frontmatter___date], order: DESC}
               filter: {frontmatter: {date: {ne: null}}}
-              skip: 1
-              limit: 3
+              skip: 0
+              limit: 4
           ) {
               nodes {
                   ...Post
@@ -52,11 +44,12 @@ const Index: React.FunctionComponent = (props) => {
   `);
 
   const image = data.splashImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
-  const featuredPost = data.featured?.nodes[0] as MarkdownRemark;
   const posts = data.posts.nodes as MarkdownRemark[];
+  const featuredPost = posts[0];
+  const secondaryPosts = posts.filter((_, i) => i !== 0) as MarkdownRemark[];
 
   const splash: HeroSplashProps = {
-    label: "Programmer's Laptop",
+    label: "Laptop",
     image: image,
     minHeight: "60vh"
   };
@@ -70,17 +63,11 @@ const Index: React.FunctionComponent = (props) => {
       <section className="-mt-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
-            <BlogCard post={featuredPost} featured={true} />
-
-            {posts.map(post => {
-              return (
-                <div key={post.frontmatter?.slug} className="flex w-full md:w-4/12 px-4">
-                  <BlogCard post={post} featured={false} />
-                </div>
-              );
-            })}
+            <BlogCard featured={true} post={featuredPost} descriptionLimit={50}  />
           </div>
         </div>
+
+        <BlogList posts={secondaryPosts} />
       </section>
     </Page>
   );

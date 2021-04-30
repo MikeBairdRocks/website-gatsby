@@ -33,7 +33,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
   return (
     <Link to={slug} className="w-full transition duration-200 ease-in-out transform hover:scale-105" title={title} aria-label={description}>
       <div className={`relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ${bgColor}`}>
-        <GatsbyImage imgClassName="rounded-t-lg" alt={title} image={image} loading="eager" objectFit="cover" />
+        <GatsbyImage imgClassName="rounded-t-lg" alt={title} image={image} loading="lazy" objectFit="cover" />
 
         <blockquote className="relative p-4 mb-2">
           <div className={`text-sm mb-3 ${tagColor}`}>

@@ -1,5 +1,5 @@
 const config = {
-  PostsPerPage: 1
+  PostsPerPage: 9
 };
 
 const createBlog = (actions, posts) => {

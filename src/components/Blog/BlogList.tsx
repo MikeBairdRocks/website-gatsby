@@ -8,7 +8,7 @@ type BlogListProps = {
 
 const BlogList: React.FunctionComponent<BlogListProps> = (props) => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto">
       <div className="flex flex-wrap">
         {props.posts.map((post) => (
           <div key={post.frontmatter?.slug} className="flex w-full md:w-4/12 px-4">
