@@ -1,9 +1,6 @@
 module.exports = {
   darkMode: 'class',
-  purge: [
-    './src/**/*.ts',
-    './src/!**/!*.tsx'
-  ],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       sans: [

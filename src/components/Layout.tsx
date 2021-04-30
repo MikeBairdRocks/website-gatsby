@@ -1,5 +1,4 @@
 import React, {ReactNode} from "react";
-import "../styles/index.scss";
 import Navbar from "./Navbar";
 import Theme from "./Theme/ThemeProvider";
 
