@@ -41,7 +41,9 @@ const About: React.FunctionComponent<PageProps> = (props) => {
   };
 
   return (
-    <Page title="About" splash={splash}>
+    <Page title="About"
+          description={data.site?.siteMetadata?.description as string}
+          splash={splash}>
       <section itemScope itemType="https://schema.org/Person" className="py-5">
         <div className="items-center justify-center flex relative mb-5">
           <StaticImage src="../images/michael-baird.jpg"

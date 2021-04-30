@@ -29,7 +29,10 @@ const BlogTemplate: React.FunctionComponent<BlogProps> = (props) => {
   };
 
   return (
-    <Page title="Blog" splashTitle="Blog" splash={splash}>
+    <Page title="Blog"
+          description={data.site?.siteMetadata?.description as string}
+          splashTitle="Blog"
+          splash={splash}>
       <section className="-mt-10">
         <BlogList posts={posts} />
         <Pagination />

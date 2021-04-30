@@ -5,6 +5,7 @@ import HeroSplash, {HeroSplashProps} from "./HeroSplash";
 
 interface PageProps {
   title: string;
+  description?: string;
   splash: HeroSplashProps;
   splashTitle?: string;
   splashSecondary?: string;
@@ -21,7 +22,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
 
   return (
     <Layout navbarTransparent={true}>
-      <Meta title={props.title} />
+      <Meta title={props.title} description={props.description} />
 
       <HeroSplash {...props.splash} opacity="opacity-50">
         <h1 className="text-white font-semibold text-5xl">{splashTitle}</h1>

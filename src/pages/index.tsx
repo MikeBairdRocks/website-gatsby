@@ -67,6 +67,7 @@ const Index: React.FunctionComponent = (props) => {
   return (
     <Page
     title="Home"
+    description={data.site?.siteMetadata?.description as string}
     splashTitle={`Hi, I'm ${data.site?.siteMetadata?.author?.name}.`}
     splashSecondary={`I’m an experienced software developer, focusing on code quality.`}
     splash={splash}>
