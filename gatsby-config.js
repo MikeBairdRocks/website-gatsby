@@ -14,6 +14,22 @@ module.exports = {
     ]
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        theme_color: "#1a202c",
+        start_url: "/",
+        background_color: "#434190",
+        display: "standalone",
+        icon: "src/images/icon.png"
+      }
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+
+      }
+    },
     "gatsby-transformer-json",
     {
       resolve: `gatsby-source-filesystem`,
@@ -40,16 +56,6 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        theme_color: "#1a202c",
-        start_url: "/",
-        background_color: "#434190",
-        display: "standalone",
-        icon: "src/images/icon.png"
-      },
-    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

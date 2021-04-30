@@ -89,6 +89,7 @@ const Meta: React.FunctionComponent<MetaProps> = ({
       <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x.png"/>
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x.png"/>
+      <link rel="manifest" href="/manifest.webmanifest"/>
     </Helmet>
   );
 };
