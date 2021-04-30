@@ -17,7 +17,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
   const bgColor = featured ? "bg-indigo-800" : "bg-gray-100 dark:bg-gray-800";
   const headTextColor = featured ? "text-white" : "text-gray-800 dark:text-white";
   const bodyTextColor = featured ? "text-white" : "text-gray-700 dark:text-gray-300";
-  const timestampColor = featured ? "text-gray-300" : "text-gray-500 dark:text-gray-400";
+  const timestampColor = featured ? "text-gray-300" : "text-gray-600 dark:text-gray-300";
   const tagColor = featured ? "text-indigo-200" : "text-indigo-800 dark:text-indigo-400";
 
   const post = props.post;
@@ -33,7 +33,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
   return (
     <Link to={slug} className="w-full transition duration-200 ease-in-out transform hover:scale-105" title={title} aria-label={description}>
       <div className={`relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ${bgColor}`}>
-        <GatsbyImage imgClassName="rounded-t-lg" alt={title} image={image} loading="lazy" objectFit="cover" />
+        <GatsbyImage imgClassName="rounded-t-lg" alt={title} image={image} loading="eager" objectFit="cover" />
 
         <blockquote className="relative p-4 mb-2">
           <div className={`text-sm mb-3 ${tagColor}`}>
