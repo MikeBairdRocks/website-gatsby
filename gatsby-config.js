@@ -17,6 +17,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "Michael Baird's Website",
+        short_name: "baird.rocks",
         theme_color: "#1a202c",
         start_url: "/",
         background_color: "#434190",
