@@ -13,8 +13,14 @@ export const ThemeContext = React.createContext<ThemeContextProps>({
   }
 );
 
+const isBrowser = typeof window !== "undefined";
+
 const ThemeProvider: React.FunctionComponent = (props) => {
-  const localTheme = localStorage.getItem("theme");
+  let localTheme: string | null = null;
+  if (isBrowser) {
+    localTheme = window.localStorage.getItem("theme") ;
+  }
+
   const isLocalDark = localTheme === "dark";
   const systemPrefersDark = useMediaQuery(
     {

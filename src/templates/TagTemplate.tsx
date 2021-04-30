@@ -49,7 +49,7 @@ export const tagQuery = graphql`
         }
         posts: allMarkdownRemark(
             limit: 100
-            filter: {frontmatter: {tags: {eq: $tag}}}) {
+            filter: {frontmatter: {date: {ne: null}, tags: {eq: $tag}}}) {
             nodes {
                 ...Post
             }

@@ -8,7 +8,6 @@ const createBlog = (actions, posts) => {
   const pageCount = Math.ceil(posts.length / limit);
 
   Array.from({length: pageCount}).forEach((_, i) => {
-    console.log(pageCount);
     actions.createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
       component: template,
