@@ -54,9 +54,8 @@ const Index: React.FunctionComponent = (props) => {
   `);
 
   const image = data.splashImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
-  const posts = data.posts.nodes as MarkdownRemark[];
   const featuredPost = data.featured.nodes[0] as MarkdownRemark;
-  const secondaryPosts = posts.filter((_, i) => i !== 0) as MarkdownRemark[];
+  const secondaryPosts = data.posts.nodes as MarkdownRemark[];
 
   const splash: HeroSplashProps = {
     label: "Laptop",
