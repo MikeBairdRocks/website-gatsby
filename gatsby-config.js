@@ -23,7 +23,10 @@ module.exports = {
         start_url: "/",
         background_color: "#434190",
         display: "standalone",
-        icon: "src/images/icon.png"
+        icon: "src/images/icon.png",
+        icon_options: {
+          purpose: `any maskable`
+        },
       }
     },
     {
