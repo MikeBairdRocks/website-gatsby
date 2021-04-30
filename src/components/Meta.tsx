@@ -54,7 +54,7 @@ const Meta: React.FunctionComponent<MetaProps> = ({
   const pathWithSlash = url[url.length - 1] === "/" ? url : `${url}/`;
   title = title !== "" ? `${title} | ${siteMetadata.title as string}` : siteMetadata.title as string;
   return (
-    <Helmet>
+    <Helmet htmlAttributes={{lang: "en"}}>
       <title>{title}</title>
 
       <meta name="title" content={title}/>

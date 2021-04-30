@@ -30,11 +30,21 @@ const Index: React.FunctionComponent = (props) => {
                   gatsbyImageData
               }
           }
-          posts: allMarkdownRemark(
+          featured: allMarkdownRemark(
               sort: {fields: [frontmatter___date], order: DESC}
               filter: {frontmatter: {date: {ne: null}}}
               skip: 0
-              limit: 4
+              limit: 1
+          ) {
+              nodes {
+                  ...PostFeatured
+              }
+          }
+          posts: allMarkdownRemark(
+              sort: {fields: [frontmatter___date], order: DESC}
+              filter: {frontmatter: {date: {ne: null}}}
+              skip: 1
+              limit: 3
           ) {
               nodes {
                   ...Post
@@ -45,7 +55,7 @@ const Index: React.FunctionComponent = (props) => {
 
   const image = data.splashImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
   const posts = data.posts.nodes as MarkdownRemark[];
-  const featuredPost = posts[0];
+  const featuredPost = data.featured.nodes[0] as MarkdownRemark;
   const secondaryPosts = posts.filter((_, i) => i !== 0) as MarkdownRemark[];
 
   const splash: HeroSplashProps = {
