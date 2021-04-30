@@ -43,7 +43,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        theme_color: "#1a202c",
+        start_url: "/",
+        background_color: "#434190",
+        display: "standalone",
+        icon: "src/images/icon.png"
       },
     },
     {
