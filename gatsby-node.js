@@ -2,7 +2,7 @@ const config = {
   PostsPerPage: 1
 };
 
-const createPaging = (actions, posts) => {
+const createBlog = (actions, posts) => {
   const template = require.resolve("./src/templates/BlogTemplate.tsx");
   const limit = config.PostsPerPage;
   const pageCount = Math.ceil(posts.length / limit);
@@ -84,5 +84,5 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   createTags(actions, data.tags.distinct);
   createPosts(actions, data.posts.edges);
-  createPaging(actions, data.posts.edges);
+  createBlog(actions, data.posts.edges);
 }

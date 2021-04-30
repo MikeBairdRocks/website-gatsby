@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { useMediaQuery } from "react-responsive";
+import React, {useState, useEffect, useLayoutEffect} from "react";
+import {useMediaQuery} from "react-responsive";
 
 type ThemeContextProps = {
   isDark: boolean,
@@ -8,7 +8,8 @@ type ThemeContextProps = {
 
 export const ThemeContext = React.createContext<ThemeContextProps>({
     isDark: false,
-    toggle: () => { /*empty*/ }
+    toggle: () => { /*empty*/
+    }
   }
 );
 
@@ -26,14 +27,14 @@ const ThemeProvider: React.FunctionComponent = (props) => {
   );
 
   const initialState = () => {
-    if(!localTheme)
+    if (!localTheme)
       return systemPrefersDark;
     else
       return isLocalDark;
   }
 
   const [isDark, setDark] = useState(initialState);
-  useEffect(() => {
+  useLayoutEffect(() => {
     applyTheme(isDark);
   }, [isDark]);
 

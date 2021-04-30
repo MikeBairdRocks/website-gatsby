@@ -54,14 +54,20 @@ const About: React.FunctionComponent<PageProps> = (props) => {
         <Content>
           <h2>Hello Friends 🖖🏼</h2>
           <p>
-            My name is <span itemProp="name">{name}</span>, and you’ve just found my website. Stick around and I'll tell you a little bit about myself, my hobbies and my interests. Don't have time? Here is a TLDR:
+            My name is <span itemProp="name">{name}</span>, and you’ve just found my website. Stick around and I'll tell
+            you a little bit about myself, my hobbies and my interests. Don't have time? Here is a TLDR:
           </p>
           <blockquote>
-            <p>I’m an experienced software developer with over two decades focusing on .NET technologies, web development, CI/CD automation, UX, design...among other things and dedicating a lot of time to improving peoples' lives with software.</p>
+            <p>I’m an experienced software developer with over two decades focusing on .NET technologies, web
+              development, CI/CD automation, UX, design...among other things and dedicating a lot of time to improving
+              peoples' lives with software.</p>
             <footer>
               <small className="text-sm">–Michael</small>
             </footer>
           </blockquote>
+
+          <h2>The Early Years 🐣</h2>
+          <p></p>
 
           <h2>Contact Me 📬</h2>
 
