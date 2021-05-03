@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Theme from "./Theme/ThemeProvider";
 
 import {config} from "@fortawesome/fontawesome-svg-core";
+import Footer from "./Footer";
 config.autoAddCss = false;
 
 type LayoutProps = {
@@ -19,6 +20,7 @@ const Layout: React.FunctionComponent<LayoutProps> = (props) => {
           {props.children}
         </main>
       </div>
+      <Footer />
     </Theme>
   )
 };

@@ -1,36 +1,35 @@
-import React, {ReactElement, useContext, useLayoutEffect, useState} from "react";
+import React, {ReactElement, useContext} from "react";
 import {ThemeContext} from "./ThemeProvider";
 import {faMoon, faSun} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Switch} from "@headlessui/react";
 
 interface ThemeToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   darkIcon?: string | ReactElement;
   lightIcon?: string | ReactElement;
-  darkIconClass?: string;
-  lightIconClass?: string;
 }
 
 const ThemeToggle: React.FunctionComponent<ThemeToggleProps> = (props) => {
-  const [content, setContent] = useState<ReactElement>(<></>);
   const {isDark, toggle} = useContext(ThemeContext);
 
-  useLayoutEffect(() => {
-    setContent(getContent);
-  }, [isDark]);
-
-  const getContent = (): ReactElement => {
-    const defaultIconClass = "text-yellow-500";
-    const darkIcon = props.darkIcon ?? <FontAwesomeIcon className={props.darkIconClass ?? defaultIconClass} icon={faMoon}/>;
-    const lightIcon = props.lightIcon ?? <FontAwesomeIcon className={props.lightIconClass ?? defaultIconClass} icon={faSun}/>;
-    const icon = isDark ? lightIcon : darkIcon;
-    return props.children ? <>{props.children} {icon}</> : <>{icon}</>;
-  };
-
-  const className = props.className ? `font-medium ${props.className}` : "font-medium";
+  const defaultIconClass = "text-yellow-600 w-4 h-4";
+  const darkIcon = props.darkIcon ?? <FontAwesomeIcon className={`${defaultIconClass}`} icon={faMoon}/>;
+  const lightIcon = props.lightIcon ?? <FontAwesomeIcon className={`${defaultIconClass}`} icon={faSun}/>;
+  const icon = isDark ? darkIcon : lightIcon;
 
   return (
-    <button type="button" className={className} aria-label="Toggle Theme" onClick={toggle}>{content}</button>
+    <Switch
+      checked={isDark}
+      onChange={toggle}
+      className={`${
+        isDark ? "bg-gray-700" : "bg-gray-500"
+      } relative inline-flex items-center flex-shrink-0 h-7 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+    >
+      <span className="sr-only">Use setting</span>
+      <div className={`${isDark ? "translate-x-5 bg-gray-900" : "translate-x-0 bg-white"} 
+        pointer-events-none inline-block h-6 w-6 rounded-full shadow-lg transform ring-0 transition ease-in-out duration-200`}>{icon}</div>
+    </Switch>
   );
 };
 

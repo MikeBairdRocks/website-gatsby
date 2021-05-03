@@ -10,7 +10,6 @@ type SocialIconProps = {
   type: SocialType;
   size?: SizeProp;
   color?: string;
-  smallDeviceText?: boolean;
 };
 
 const GetIcon = (type: SocialType) => {
@@ -34,9 +33,7 @@ const GetIcon = (type: SocialType) => {
 
 const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
   const iconClass = `${props.color ?? "text-gray-500"} text-3xl leading-lg`;
-  const text = props.text ?? "Share";
   const size = props.size ?? "1x";
-  const smallDeviceText = props.smallDeviceText ?? false;
   const icon = GetIcon(props.type);
 
   return (
@@ -44,7 +41,6 @@ const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
        aria-label={props.text}
        className={`${props.color} text-2xl font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3`}>
       <span className={iconClass}><FontAwesomeIcon icon={icon} size={size} /></span>
-      {smallDeviceText ? <span className="lg:hidden inline-block ml-2">{text}</span> : <></>}
     </a>
   );
 };
