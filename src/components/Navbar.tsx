@@ -65,8 +65,6 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
               <Link to="/">
                 <LogoIcon className="block lg:hidden h-10 w-auto" />
                 <LogoText className="hidden lg:block h-10 w-auto" />
-{/*                <img className="block lg:hidden h-10 w-auto" src="/logo-icon.svg" alt={title} />
-                <img className="hidden lg:block h-10 w-auto" src="/logo-white-text.svg" alt={title} />*/}
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
@@ -105,48 +103,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
         </div>
       </div>
     </nav>
-);
-
-/*  return (
-    <nav className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 absolute z-50 top-0">
-      <div className="relative flex items-center justify-between h-16">
-        <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-
-
-        </div>
-
-        <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className={`${baseLinkClass} text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase`}>
-              {data.site?.siteMetadata?.title}
-            </Link>
-          </div>
-          <div className="hidden sm:block sm:ml-6">
-            <div className="flex space-x-2">
-              <NavLink {...props} to="/blog" text="Blog">Blog</NavLink>
-              <NavLink {...props} to="/about" text="About">About</NavLink>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <ul className="flex items-center list-none ml-auto">
-            {data.site?.siteMetadata?.social?.map((value, index) => {
-              return (
-                <li key={`social-${index}`} className="flex items-center">
-                  <SocialIcon color={socialClass} type={value?.type as SocialType} href={value?.url ?? ""} text={value?.type?.toString()}/>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="pl-10">
-            <ThemeToggle/>
-          </div>
-        </div>
-
-      </div>
-    </nav>
-  );*/
+  );
 };
 
 export default Navbar;
