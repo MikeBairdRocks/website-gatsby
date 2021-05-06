@@ -201,6 +201,13 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: '@sentry/gatsby',
+      options: {
+        dsn: process.env.SENTRY_DSN,
+        tracesSampleRate: 1
+      }
     }
   ],
 };
