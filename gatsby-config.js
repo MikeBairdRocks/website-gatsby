@@ -7,10 +7,10 @@ module.exports = {
       name: "Michael Baird"
     },
     social: [
-      { type: "Twitter", url: "https://twitter.com/MikeBairdRocks", username: "@MikeBairdRocks" },
-      { type: "Github", url: "https://github.com/MikeBairdRocks" },
-      { type: "LinkedIn", url: "https://linkedin.com/in/MikeBairdRocks" },
-      { type: "StackOverflow", url: "https://stackoverflow.com/users/131076/michael-baird" },
+      {type: "Twitter", url: "https://twitter.com/MikeBairdRocks", username: "@MikeBairdRocks"},
+      {type: "Github", url: "https://github.com/MikeBairdRocks"},
+      {type: "LinkedIn", url: "https://linkedin.com/in/MikeBairdRocks"},
+      {type: "StackOverflow", url: "https://stackoverflow.com/users/131076/michael-baird"},
     ]
   },
   plugins: [
@@ -36,8 +36,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   custom_elements: [{"content:encoded": edge.node.html}],
                 })
               })
@@ -46,14 +46,13 @@ module.exports = {
               {
                 allMarkdownRemark(
                   filter: {frontmatter: {date: {ne: null}}}
-                  sort: { order: DESC, fields: [frontmatter___date] }
-                ) {
+                  sort: {order: DESC, fields: [frontmatter___date]}) {
                   edges {
                     node {
                       excerpt
                       html
-                      fields { slug }
                       frontmatter {
+                      slug
                         title
                         date
                       }
@@ -94,9 +93,7 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-offline",
-      options: {
-
-      }
+      options: {}
     },
     "gatsby-transformer-json",
     {
