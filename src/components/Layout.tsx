@@ -15,7 +15,7 @@ const Layout: React.FunctionComponent<LayoutProps> = (props) => {
   return (
     <Theme>
       <div className="antialiased overflow-x-hidden bg-gray-200 dark:bg-gray-900 transition-all duration-500 ease-in-out">
-        <Navbar transparent={props.navbarTransparent} />
+        <Navbar />
         <main>
           {props.children}
         </main>
