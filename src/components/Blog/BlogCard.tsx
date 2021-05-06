@@ -39,13 +39,8 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
           <div className={`text-sm mb-3 ${tagColor}`}>
             <TagLinks tags={props.post.frontmatter?.tags as string[]} />
           </div>
-          <h1 className={`text-xl font-bold ${headTextColor}`}>{title.truncate(5)}</h1>
-          <p className={`text-md font-light mt-2 ${bodyTextColor}`}>
-            {description.truncate(props.descriptionLimit ?? 20)}
-          </p>
- {/*         <div className={`text-sm font-bold mt-5 ${timestampColor}`}>
-            <Date value={date} /> • {readingTime}
-          </div>*/}
+          <h1 className={`text-xl font-bold truncate ${headTextColor}`}>{title}</h1>
+          <p className={`text-md font-light mt-2 line-clamp-2 ${bodyTextColor}`}>{description}</p>
           <div className="flex items-center space-x-3 mt-10">
             <div className="inline-flex w-10 h-10">
               <StaticImage className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird.jpg" alt={author} />

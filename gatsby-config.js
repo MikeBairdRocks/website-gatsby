@@ -15,6 +15,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Michael Baird's Website",

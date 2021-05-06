@@ -813,6 +813,7 @@ export type SitePluginPluginOptionsPostCssPlugins = {
   purge?: Maybe<Array<Maybe<Scalars['String']>>>;
   theme?: Maybe<SitePluginPluginOptionsPostCssPluginsTheme>;
   variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariants>;
+  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPluginsPlugins>>>;
 };
 
 export type SitePluginPluginOptionsPostCssPluginsTheme = {
@@ -831,6 +832,32 @@ export type SitePluginPluginOptionsPostCssPluginsVariants = {
 
 export type SitePluginPluginOptionsPostCssPluginsVariantsExtend = {
   typography?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPlugins = {
+  config?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfig>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfig = {
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigTheme>;
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigVariants>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigTheme = {
+  lineClamp?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeLineClamp>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeLineClamp = {
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigVariants = {
+  lineClamp?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsPrompt = {
@@ -2514,6 +2541,7 @@ export type SitePluginPluginOptionsPostCssPluginsFilterInput = {
   purge?: Maybe<StringQueryOperatorInput>;
   theme?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFilterInput>;
   variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariantsFilterInput>;
+  plugins?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsFilterListInput>;
 };
 
 export type SitePluginPluginOptionsPostCssPluginsThemeFilterInput = {
@@ -2532,6 +2560,36 @@ export type SitePluginPluginOptionsPostCssPluginsVariantsFilterInput = {
 
 export type SitePluginPluginOptionsPostCssPluginsVariantsExtendFilterInput = {
   typography?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsFilterInput = {
+  config?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigFilterInput = {
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeFilterInput>;
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigVariantsFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeFilterInput = {
+  lineClamp?: Maybe<SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeLineClampFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigThemeLineClampFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsPluginsConfigVariantsFilterInput = {
+  lineClamp?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPromptFilterInput = {
@@ -2776,6 +2834,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___postCssPlugins'
   | 'pluginCreator___pluginOptions___postCssPlugins___darkMode'
   | 'pluginCreator___pluginOptions___postCssPlugins___purge'
+  | 'pluginCreator___pluginOptions___postCssPlugins___plugins'
   | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___createLinkInHead'
   | 'pluginCreator___pluginOptions___maxWidth'
@@ -3684,6 +3743,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___postCssPlugins'
   | 'pluginOptions___postCssPlugins___darkMode'
   | 'pluginOptions___postCssPlugins___purge'
+  | 'pluginOptions___postCssPlugins___plugins'
   | 'pluginOptions___output'
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___maxWidth'

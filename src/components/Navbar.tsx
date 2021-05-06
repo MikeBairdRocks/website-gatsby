@@ -4,9 +4,8 @@ import SocialIcon from "./SocialIcon";
 import ThemeToggle from "./Theme/ThemeToggle";
 import {SocialType} from "../queries/SiteMetaData";
 import {SiteQuery} from "../../types/graphql-types";
-import { Popover } from "@headlessui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faBars} from "@fortawesome/free-solid-svg-icons";
+import LogoIcon from "../images/logo-icon.inline.svg";
+import LogoText from "../images/logo-white-text.inline.svg";
 
 type NavbarProps = {
 };
@@ -42,6 +41,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
           }
       }
   `);
+  const title = data.site?.siteMetadata?.title as string;
 
   return (
     <nav className="sm:absolute w-full z-50 top-0">
@@ -63,8 +63,10 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
               <Link to="/">
-                <img className="block lg:hidden h-10 w-auto" src="/logo-icon.svg" alt={data.site?.siteMetadata?.title as string} />
-                <img className="hidden lg:block h-10 w-auto" src="/logo-white-text.svg" alt={data.site?.siteMetadata?.title as string} />
+                <LogoIcon className="block lg:hidden h-10 w-auto" />
+                <LogoText className="hidden lg:block h-10 w-auto" />
+{/*                <img className="block lg:hidden h-10 w-auto" src="/logo-icon.svg" alt={title} />
+                <img className="hidden lg:block h-10 w-auto" src="/logo-white-text.svg" alt={title} />*/}
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
