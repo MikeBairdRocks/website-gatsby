@@ -62,9 +62,9 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/">
-                <LogoIcon className="block lg:hidden h-10 w-auto" />
-                <LogoText className="hidden lg:block h-10 w-auto" />
+              <Link to="/" aria-label={title}>
+                <LogoIcon className="block lg:hidden h-10 w-auto" title={title} />
+                <LogoText className="hidden lg:block h-10 w-auto" title={title} />
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
