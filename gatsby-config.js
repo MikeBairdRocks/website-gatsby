@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Michael Baird",
-    siteUrl: "https://baird.rocks/",
+    siteUrl: "https://baird.rocks",
     description: "I’m an experienced software developer, focusing on code quality.",
     author: {
       name: "Michael Baird"
@@ -33,11 +33,13 @@ module.exports = {
           {
             serialize: ({query: {site, allMarkdownRemark}}) => {
               return allMarkdownRemark.edges.map(edge => {
+                const url = `${site.siteMetadata.siteUrl}/blog/${edge.node.frontmatter.slug}`;
+
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  url: url,
+                  guid: url,
                   custom_elements: [{"content:encoded": edge.node.html}],
                 })
               })
