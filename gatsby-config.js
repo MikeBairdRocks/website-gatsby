@@ -84,8 +84,9 @@ module.exports = {
         name: "Michael Baird's Website",
         short_name: "baird.rocks",
         theme_color: "#1a202c",
-        start_url: "/",
+        lang: 'en',
         background_color: "#434190",
+        start_url: "/",
         display: "standalone",
         icon: "src/images/icon.png",
         icon_options: {
