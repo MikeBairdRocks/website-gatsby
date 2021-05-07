@@ -32,7 +32,7 @@ const ThemeProvider: React.FunctionComponent = (props) => {
     }
   );
 
-  const initialState = () => {
+  const initialState = (): boolean => {
     if (!localTheme)
       return systemPrefersDark;
     else
