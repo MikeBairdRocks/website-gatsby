@@ -43,7 +43,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
           <p className={`text-md font-light mt-2 line-clamp-2 ${bodyTextColor}`}>{description}</p>
           <div className="flex items-center space-x-3 mt-10">
             <div className="inline-flex w-10 h-10">
-              <StaticImage className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird.jpg" alt={author} />
+              <StaticImage width={40} className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird.jpg" alt={author} />
             </div>
             <div>
               <p className={headTextColor}>{author}</p>

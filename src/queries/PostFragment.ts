@@ -16,9 +16,9 @@ export const PostFragment = graphql`
                 childImageSharp {
                     gatsbyImageData(
                         height: 300,
+                        layout: FULL_WIDTH,
                         aspectRatio: 1.778
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP]
                     )
                 }
             }

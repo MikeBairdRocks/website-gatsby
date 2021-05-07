@@ -13,7 +13,12 @@ export const PostFeaturedFragment = graphql`
             date
             image {
                 childImageSharp {
-                    gatsbyImageData(height: 300, aspectRatio: 1.778)
+                    gatsbyImageData(
+                        height: 225,
+                        layout: CONSTRAINED,
+                        aspectRatio: 1.778,
+                        placeholder: BLURRED
+                    )
                 }
             }
         }

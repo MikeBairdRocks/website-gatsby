@@ -14,6 +14,7 @@ module.exports = {
     ]
   },
   plugins: [
+    "gatsby-plugin-loadable-components-ssr",
     {
       resolve: "gatsby-plugin-feed",
       options: {
@@ -148,6 +149,16 @@ module.exports = {
       },
     },
     "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: ["auto", "webp", "avif"],
+          breakpoints: [320, 640, 768, 1024, 1280, 1536, 1920]
+        }
+      }
+    },
+    "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -179,8 +190,6 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

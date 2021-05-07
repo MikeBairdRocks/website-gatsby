@@ -60,7 +60,9 @@ export const blogQuery = graphql`
         }
         splashImage: file(relativePath: {eq: "splash.jpg"}) {
             childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                    layout: FULL_WIDTH
+                )
             }
         }
         posts: allMarkdownRemark(
