@@ -43,6 +43,7 @@ const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
       <a href={props.href}
          aria-label={props.text}
          target="_blank"
+         rel="noreferrer"
          className={`${props.color} font-normal rounded-full outline-none focus:outline-none`}>
         <span className={props.colorize ? icon[1] : ""}><FontAwesomeIcon icon={icon[0]} size={size} />{text}</span>
       </a>
