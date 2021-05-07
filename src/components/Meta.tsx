@@ -91,7 +91,7 @@ const Meta: React.FunctionComponent<MetaProps> = ({
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x.png"/>
       <link rel="manifest" href="/manifest.webmanifest"/>
 
-      <link rel="alternate" type="application/rss+xml" title={`RSS Feed`} href="/feed.xml" />
+      <link rel="alternate" type="application/rss+xml" title={`${title}'s RSS Feed`} href="/feed.xml" />
     </Helmet>
   );
 };
