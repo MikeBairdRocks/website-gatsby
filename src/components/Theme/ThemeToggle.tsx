@@ -22,11 +22,9 @@ const ThemeToggle: React.FunctionComponent<ThemeToggleProps> = (props) => {
     <Switch
       checked={isDark}
       onChange={toggle}
-      className={`${
-        isDark ? "bg-gray-700" : "bg-gray-500"
-      } relative inline-flex items-center flex-shrink-0 h-7 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+      className={`${props.className} ${isDark ? "bg-gray-700" : "bg-gray-500"} relative inline-flex items-center flex-shrink-0 h-7 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
     >
-      <span className="sr-only">Use setting</span>
+      <span className="sr-only">Toggle Theme</span>
       <div className={`${isDark ? "translate-x-5 bg-gray-900" : "translate-x-0 bg-white"} 
         pointer-events-none inline-block h-6 w-6 rounded-full shadow-lg transform ring-0 transition ease-in-out duration-200`}>{icon}</div>
     </Switch>

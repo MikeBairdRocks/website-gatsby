@@ -264,6 +264,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
+  polyfill?: Maybe<Scalars['Boolean']>;
+  pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -736,6 +738,7 @@ export type SitePluginPluginOptions = {
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
+  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfig>;
   path?: Maybe<Scalars['String']>;
   codegen?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
@@ -762,6 +765,7 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
+  tracesSampleRate?: Maybe<Scalars['Int']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -813,6 +817,14 @@ export type SitePluginPluginOptionsFeeds = {
 
 export type SitePluginPluginOptionsIcon_Options = {
   purpose?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfig = {
+  runtimeCaching?: Maybe<Array<Maybe<SitePluginPluginOptionsWorkboxConfigRuntimeCaching>>>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfigRuntimeCaching = {
+  handler?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsPostCssPlugins = {
@@ -1137,6 +1149,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2439,6 +2453,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___social___username'
   | 'port'
   | 'host'
+  | 'polyfill'
+  | 'pathPrefix'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2540,6 +2556,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2585,6 +2603,7 @@ export type SitePluginPluginOptionsFilterInput = {
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
+  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfigFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
   codegen?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
@@ -2611,6 +2630,7 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
+  tracesSampleRate?: Maybe<IntQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -2670,6 +2690,18 @@ export type SitePluginPluginOptionsFeedsFilterInput = {
 
 export type SitePluginPluginOptionsIcon_OptionsFilterInput = {
   purpose?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfigFilterInput = {
+  runtimeCaching?: Maybe<SitePluginPluginOptionsWorkboxConfigRuntimeCachingFilterListInput>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfigRuntimeCachingFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsWorkboxConfigRuntimeCachingFilterInput>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfigRuntimeCachingFilterInput = {
+  handler?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
@@ -2907,6 +2939,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
+  | 'pluginCreator___pluginOptions___workboxConfig___runtimeCaching'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___codegen'
   | 'pluginCreator___pluginOptions___fileName'
@@ -2938,6 +2971,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___tracesSampleRate'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -3916,6 +3950,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
+  | 'pluginOptions___workboxConfig___runtimeCaching'
+  | 'pluginOptions___workboxConfig___runtimeCaching___handler'
   | 'pluginOptions___path'
   | 'pluginOptions___codegen'
   | 'pluginOptions___fileName'
@@ -3947,6 +3983,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
+  | 'pluginOptions___tracesSampleRate'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -4184,6 +4221,14 @@ export type StaticImageSortInput = {
   fields?: Maybe<Array<Maybe<StaticImageFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
+
+export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'description'>
+      & { social?: Maybe<Array<Maybe<Pick<SiteSiteMetadataSocial, 'type' | 'url'>>>> }
+    )> }> };
 
 export type SiteMetaQueryVariables = Exact<{ [key: string]: never; }>;
 
