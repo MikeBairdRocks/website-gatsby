@@ -5,6 +5,7 @@ date: "2018-06-16"
 author: "Michael Baird"
 description: "Styles guides document coding conventions on topics like class names, variable names and code indentation."
 image: "rules.jpg"
+category: Software Development
 tags:
 - cleancode
 ---

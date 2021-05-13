@@ -6,10 +6,16 @@ import {GatsbyImage, IGatsbyImageData, StaticImage} from "gatsby-plugin-image";
 import {MarkdownRemark} from "../../../types/graphql-types";
 import TagLinks from "./TagLinks";
 
+enum BlogCardOrientation {
+  Horizontal,
+  Vertical
+}
+
 type BlogCardProps = {
   post: MarkdownRemark;
   featured?: boolean;
   descriptionLimit?: number;
+  orientation: BlogCardOrientation
 };
 
 const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
@@ -32,12 +38,12 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
 
   return (
     <Link to={slug} className="w-full transition duration-200 ease-in-out transform hover:scale-105" title={title} aria-label={description}>
-      <div className={`relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ${bgColor}`}>
-        <GatsbyImage imgClassName="rounded-t-lg" alt={title} image={image} loading="eager" objectFit="cover" />
+      <div className={`relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-xl p-2 ${bgColor}`}>
+        <GatsbyImage imgClassName="rounded-lg" alt={title} image={image} loading="eager" objectFit="cover" />
 
         <blockquote className="relative p-4 mb-2">
-          <div className={`text-sm mb-3 ${tagColor}`}>
-            <TagLinks tags={props.post.frontmatter?.tags as string[]} />
+          <div className="text-sm mb-3">
+            <TagLinks className={tagColor} tags={props.post.frontmatter?.tags as string[]} />
           </div>
           <h1 className={`text-xl font-bold truncate ${headTextColor}`}>{title}</h1>
           <p className={`text-md font-light mt-2 line-clamp-2 ${bodyTextColor}`}>{description}</p>

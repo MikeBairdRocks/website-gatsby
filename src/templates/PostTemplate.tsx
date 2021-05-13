@@ -43,8 +43,8 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
         <p className="text-sm font-bold mt-5 text-gray-400">
           <Date value={post.date}/> • {post.readingTime}
         </p>
-        <p className="mt-5 text-indigo-500 hover:text-indigo-600">
-          <TagLinks tags={post.tags}/>
+        <p className="mt-5">
+          <TagLinks className="text-indigo-500 hover:text-indigo-600" tags={post.tags}/>
         </p>
       </HeroSplash>
 

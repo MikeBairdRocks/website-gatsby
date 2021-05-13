@@ -5,6 +5,7 @@ date: "2019-10-23"
 author: "Michael Baird"
 description: "We all started out programming somewhere. Whether you are a self-taught developer starting out, a computer science major or a 20 year veteran, you all know that even the bad/unreadable code works."
 image: "./legos.jpg"
+category: Software Development
 tags:
 - cleancode
 ---
