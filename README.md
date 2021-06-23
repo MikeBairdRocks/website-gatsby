@@ -14,11 +14,15 @@
   <a href="https://github.com/MikeBairdRocks/baird.rocks.v1" target="_blank">v1</a> with <a href="https://nextjs.org/" target="_blank">NextJs</a>,
 </p>
 
-[![baird.rocks screenshot](./src/images/screenshot.jpg)](https://baird.rocks)
+<p align="center">
+  <a href="https://baird.rocks" target="_blank"><img src="./src/images/screenshot.jpg" alt="baird.rocks" /></a>
+</p>
 
 ## ⚡ Lighthouse Score
 
-[![lighthouse score](./src/images/lighthouse.png)](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fbaird.rocks%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa)
+<p align="center">
+  <a href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fbaird.rocks%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa" target="_blank"><img src="./src/images/lighthouse.png" alt="Lighthouse Score" /></a>
+</p>
 
 I have spent time on on optimizing the website and using ![Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities to get the highest score possible in ![lighthouse](https://developers.google.com/web/tools/lighthouse).
 
