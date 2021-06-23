@@ -1,48 +1,35 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://baird.rocks/">
+    <img alt="baird.rocks" src="./src/images/logo-icon.inline.svg" width="60" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+<h1 align="center">baird.rocks using Gatsby</h1>
 
-## 🚀 Quick start
+<p align="center">
+  The second iteration of <a href="https://baird.rocks" target="_blank">baird.rocks</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a>
+</p>
 
-1.  **Create a Gatsby site.**
+<p align="center">
+  Previous iterations:
+  <a href="https://github.com/MikeBairdRocks/baird.rocks.v1" target="_blank">v1</a> with <a href="https://nextjs.org/" target="_blank">NextJs</a>,
+</p>
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+<p align="center">
+  <a href="https://baird.rocks" target="_blank"><img src="./src/images/screenshot.jpg" alt="baird.rocks" /></a>
+</p>
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## ⚡ Lighthouse Score
 
-2.  **Start developing.**
+<p align="center">
+  <a href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fbaird.rocks%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa" target="_blank"><img src="./src/images/lighthouse.png" alt="Lighthouse Score" /></a>
+</p>
 
-    Navigate into your new site’s directory and start it up.
+I have spent time on optimizing the website and using ![Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities to get the highest score possible in ![lighthouse](https://developers.google.com/web/tools/lighthouse).
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## 🚨 Forking this repo (please read!)
 
-3.  **Open the code and start customizing!**
+Many people have contacted me asking me if they can use this code for their own website, and the answer to that question is usually **yes, with attribution**.
 
-    Your site is now running at http://localhost:8000!
+So yes, you can fork this repo. Please give me proper credit by linking back to [baird.rocks](https://baird.rocks). Thanks!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
