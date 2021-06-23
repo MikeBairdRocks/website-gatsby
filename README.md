@@ -14,7 +14,7 @@
   <a href="https://github.com/MikeBairdRocks/baird.rocks.v1" target="_blank">v1</a> with <a href="https://nextjs.org/" target="_blank">NextJs</a>,
 </p>
 
-![screenshot](https://raw.githubusercontent.com/MikeBairdRocks/website-gatsby/main/src/images/screenshot.jpg)
+ [![baird.rocks screenshot](https://raw.githubusercontent.com/MikeBairdRocks/website-gatsby/main/src/images/screenshot.jpg)](https://baird.rocks)
 
 ## 🚨 Forking this repo (please read!)
 
