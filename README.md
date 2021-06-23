@@ -24,7 +24,7 @@
   <a href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fbaird.rocks%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa" target="_blank"><img src="./src/images/lighthouse.png" alt="Lighthouse Score" /></a>
 </p>
 
-I have spent time on on optimizing the website and using ![Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities to get the highest score possible in ![lighthouse](https://developers.google.com/web/tools/lighthouse).
+I have spent time on optimizing the website and using ![Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities to get the highest score possible in ![lighthouse](https://developers.google.com/web/tools/lighthouse).
 
 ## 🚨 Forking this repo (please read!)
 
