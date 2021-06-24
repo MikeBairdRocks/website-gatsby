@@ -7,6 +7,8 @@
 
 <p align="center">
   <a href='https://coveralls.io/github/MikeBairdRocks/website-gatsby?branch=main'><img src='https://coveralls.io/repos/github/MikeBairdRocks/website-gatsby/badge.svg?branch=main' alt='Coverage Status' /></a>
+    <a href="https://github.com/MikeBairdRocks/website-gatsby/actions/workflows/ci"><img src="https://github.com/MikeBairdRocks/website-gatsby/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/MikeBairdRocks/website-gatsby/actions/workflows/codeql-analysis"><img src="https://github.com/MikeBairdRocks/website-gatsby/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" /></a>
 </p>
 
 <p align="center">
