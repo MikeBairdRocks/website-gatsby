@@ -12,7 +12,7 @@ const Logo: React.FunctionComponent<Props> = (props) => {
   const className = props.className ?? "text-white dark:text-black";
 
   return (
-    <div className={`flex-shrink-0 flex items-center ${className}`}>
+    <div {...props} className={`flex-shrink-0 flex items-center ${className}`}>
       <Link to="/" aria-label={props.text}>
         <LogoIcon className="block lg:hidden h-10 w-auto" title={props.text}/>
         <LogoText className="hidden lg:block h-10 w-auto" title={props.text}/>
