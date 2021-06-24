@@ -1,7 +1,7 @@
 ---
 title: "Docker Caching to Improve Build Times"
 slug: "docker-caching-to-improve-build-times"
-date: 2021-05-19
+date: 
 author: "Michael Baird"
 description: "We will discuss various ways of speeding up the build time of Docker images in a continuous integration pipeline."
 image: "./containers.jpg"

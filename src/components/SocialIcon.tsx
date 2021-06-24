@@ -9,8 +9,8 @@ interface SocialIconProps extends HTMLAttributes<HTMLDivElement> {
   text?: string;
   type: SocialType;
   size?: SizeProp;
-  showText?: boolean;
-  colorize?: boolean;
+  showText: boolean;
+  colorize: boolean;
 };
 
 const GetIcon = (type: SocialType): [IconDefinition, string] => {
@@ -35,8 +35,8 @@ const GetIcon = (type: SocialType): [IconDefinition, string] => {
 const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
   const size = props.size ?? "1x";
   const icon = GetIcon(props.type);
-  const showText = props.showText ?? false;
-  const text = ` ${showText ? props.text : ""}`;
+  const text = ` ${props.showText ? props.text : ""}`;
+  const iconClass: string = props.colorize ? icon[1] : "";
 
   return (
     <div {...props}>
@@ -45,7 +45,7 @@ const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
          target="_blank"
          rel="noreferrer"
          className={`${props.color} font-normal rounded-full outline-none focus:outline-none`}>
-        <span className={props.colorize ? icon[1] : ""}><FontAwesomeIcon icon={icon[0]} size={size} />{text}</span>
+        <span className={iconClass}><FontAwesomeIcon icon={icon[0]} size={size} />{text}</span>
       </a>
     </div>
   );
