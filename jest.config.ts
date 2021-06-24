@@ -1,4 +1,7 @@
-module.exports = {
+import type {Config} from '@jest/types';
+
+const config: Config.InitialOptions = {
+  collectCoverage: true,
   transform: {
     "^.+\\.tsx?$": `<rootDir>/.jest/jest-preprocess.js`,
   },
@@ -16,4 +19,6 @@ module.exports = {
   setupFiles: [`<rootDir>/.jest/jest.loadershim.js`],
   testEnvironment: `jsdom`,
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"]
-}
+};
+
+export default config;
