@@ -6,6 +6,10 @@
 <h1 align="center">baird.rocks using Gatsby</h1>
 
 <p align="center">
+  <a href='https://coveralls.io/github/MikeBairdRocks/website-gatsby?branch=main'><img src='https://coveralls.io/repos/github/MikeBairdRocks/website-gatsby/badge.svg?branch=main' alt='Coverage Status' /></a>
+</p>
+
+<p align="center">
   The second iteration of <a href="https://baird.rocks" target="_blank">baird.rocks</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a>
 </p>
 
