@@ -12,7 +12,7 @@ const BlogList: React.FunctionComponent<BlogListProps> = (props) => {
       <div className="flex flex-wrap">
         {props.posts.map((post) => (
           <div key={post.frontmatter?.slug} className="flex w-full lg:w-4/12 px-4">
-            <BlogCard post={post} descriptionLimit={15}  />
+            <BlogCard post={post} descriptionLimit={15} />
           </div>
         ))}
       </div>

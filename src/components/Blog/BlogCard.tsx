@@ -6,16 +6,10 @@ import {GatsbyImage, IGatsbyImageData, StaticImage} from "gatsby-plugin-image";
 import {MarkdownRemark} from "../../../types/graphql-types";
 import TagLinks from "./TagLinks";
 
-enum BlogCardOrientation {
-  Horizontal,
-  Vertical
-}
-
 type BlogCardProps = {
   post: MarkdownRemark;
   featured?: boolean;
   descriptionLimit?: number;
-  orientation: BlogCardOrientation
 };
 
 const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
