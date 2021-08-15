@@ -44,8 +44,6 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
     },
   };
 
-  console.log(disqusConfig);
-
   return (
     <Layout navbarTransparent={true}>
       <Meta title={post.title} description={post.description} url={post.slug} image={imageSource}/>
