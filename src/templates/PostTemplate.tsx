@@ -66,8 +66,10 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
             <div dangerouslySetInnerHTML={{__html: post.html}}></div>
           </section>
           <section className="mt-10">
-            <h2 className="text-white font-semibold text-2xl">Comments</h2>
-            <DiscussionEmbed shortname={disqusConfig.shortname} config={disqusConfig.config} />
+            <div className="bg-gray-800 p-4 rounded-lg">
+              <span className="text-white font-semibold text-2xl">💬 Comments</span>
+              <DiscussionEmbed shortname={disqusConfig.shortname} config={disqusConfig.config} />
+            </div>
           </section>
         </Content>
       </article>
