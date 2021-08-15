@@ -8,6 +8,7 @@ import Layout from "../components/Layout";
 import Meta from "../components/Meta";
 import TagLinks from "../components/Blog/TagLinks";
 import Content from "../components/Content";
+import { DiscussionEmbed } from "disqus-react";
 
 type PostProps = {
   readonly data: BlogPostBySlugQuery
@@ -26,7 +27,8 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
     description: props.data.post?.frontmatter?.description as string,
     html: props.data.post?.html as string,
     date: props.data.post?.frontmatter?.date as string,
-    slug: props.data.post?.frontmatter?.slug as string,
+    slug: `blog/${props.data.post?.frontmatter?.slug}`,
+    canonical: ``,
     readingTime: `${props.data.post?.timeToRead} MIN READ`,
     image: props.data.post?.frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData,
     tags: props.data.post?.frontmatter?.tags as string[]
@@ -34,9 +36,19 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
 
   const imageSource = getSrc(post.image);
 
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME as string,
+    config: {
+      identifier: post.slug,
+      title: post.title
+    },
+  };
+
+  console.log(disqusConfig);
+
   return (
     <Layout navbarTransparent={true}>
-      <Meta title={post.title} description={post.description} url={`blog/${post.slug}`} image={imageSource}/>
+      <Meta title={post.title} description={post.description} url={post.slug} image={imageSource}/>
 
       <HeroSplash label={post.title} image={post.image} minHeight="50vh">
         <h1 className="text-white font-semibold text-5xl">{post.title}</h1>
@@ -50,7 +62,13 @@ const PostTemplate: React.FunctionComponent<PostProps> = (props) => {
 
       <article className="pb-20">
         <Content>
-          <div dangerouslySetInnerHTML={{__html: post.html}}></div>
+          <section>
+            <div dangerouslySetInnerHTML={{__html: post.html}}></div>
+          </section>
+          <section className="mt-10">
+            <h2 className="text-white font-semibold text-2xl">Comments</h2>
+            <DiscussionEmbed shortname={disqusConfig.shortname} config={disqusConfig.config} />
+          </section>
         </Content>
       </article>
     </Layout>
