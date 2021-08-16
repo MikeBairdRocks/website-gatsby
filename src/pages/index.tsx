@@ -70,7 +70,7 @@ const Index: React.FunctionComponent = (props) => {
     splashTitle={`Hi, I'm ${data.site?.siteMetadata?.author?.name}.`}
     splashSecondary={`I’m an experienced software developer, focusing on code quality.`}
     splash={splash}>
-      <section className="-mt-24">
+      <section className="-mt-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <BlogCard featured={true} post={featuredPost} descriptionLimit={50}  />

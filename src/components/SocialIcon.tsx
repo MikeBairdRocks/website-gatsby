@@ -37,9 +37,10 @@ const SocialIcon: React.FunctionComponent<SocialIconProps> = (props) => {
   const icon = GetIcon(props.type);
   const text = ` ${props.showText ? props.text : ""}`;
   const iconClass: string = props.colorize ? icon[1] : "";
+  const className = props.className ?? "";
 
   return (
-    <div {...props}>
+    <div className={className}>
       <a href={props.href}
          aria-label={props.text}
          target="_blank"

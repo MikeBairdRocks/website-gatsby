@@ -7,6 +7,7 @@ export const PostFeaturedFragment = graphql`
         timeToRead
         frontmatter {
             title
+            author
             description
             tags
             slug

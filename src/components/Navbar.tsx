@@ -51,11 +51,11 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
               <span className="sr-only">Open main menu</span>
 
               <svg className={`h-6 w-6 ${navbarOpen ? "hidden" : "block"}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
 
               <svg className={`h-6 w-6 ${navbarOpen ? "block" : "hidden"}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
@@ -73,7 +73,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = (props) => {
               {data.site?.siteMetadata?.social?.map((value, index) => {
                 return (
                   <li key={`social-${index}`} className="flex items-center text-3xl leading-lg mr-2 p-3">
-                    <SocialIcon className="text-white hover:text-gray-300" type={value?.type as SocialType} href={value?.url ?? ""} text={value?.type?.toString()}/>
+                    <SocialIcon showText={false} colorize={false} className="text-white hover:text-gray-300" type={value?.type as SocialType} href={value?.url ?? ""} text={value?.type?.toString()}/>
                   </li>
                 );
               })}

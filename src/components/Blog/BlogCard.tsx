@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "gatsby";
+import {Link, navigate} from "gatsby";
 import Date from "./Date";
 import "../../common/StringExtensions";
 import {GatsbyImage, IGatsbyImageData, StaticImage} from "gatsby-plugin-image";
@@ -30,8 +30,17 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
   const readingTime = `${post?.timeToRead} MIN READ` ?? "";
   const image: IGatsbyImageData = frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData;
 
+  const goToPost = (event: React.MouseEvent, slug: string) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (slug) {
+      navigate(slug);
+    }
+  };
+
   return (
-    <Link to={slug} className="w-full transition duration-200 ease-in-out transform hover:scale-105" title={title} aria-label={description}>
+    <div onClick={e => goToPost(e, slug)} className="cursor-pointer w-full transition duration-200 ease-in-out transform hover:scale-105" title={title} aria-label={description}>
       <div className={`relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-xl p-2 ${bgColor}`}>
         <GatsbyImage imgClassName="rounded-lg" alt={title} image={image} loading="eager" objectFit="cover" />
 
@@ -46,7 +55,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
               <StaticImage width={40} className='w-10 h-10 object-cover rounded-full' src="../../images/michael-baird.jpg" alt={author} />
             </div>
             <div>
-              <p className={headTextColor}>{author}</p>
+              <p className={`${headTextColor} text-sm`}>{author}</p>
               <p className={`${timestampColor} text-sm font-semibold tracking-wide`}>
                 <Date value={date} /> • {readingTime}
               </p>
@@ -54,7 +63,7 @@ const BlogCard: React.FunctionComponent<BlogCardProps> = (props) => {
           </div>
         </blockquote>
       </div>
-    </Link>
+    </div>
   );
 };
 

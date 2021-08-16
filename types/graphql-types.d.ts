@@ -681,8 +681,8 @@ export type MarkdownRemarkFrontmatter = {
   author?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -962,7 +962,7 @@ export type StaticImage = Node & {
   uid?: Maybe<Scalars['Int']>;
   rdev?: Maybe<Scalars['Int']>;
   blksize?: Maybe<Scalars['Int']>;
-  ino?: Maybe<Scalars['Float']>;
+  ino?: Maybe<Scalars['Int']>;
   size?: Maybe<Scalars['Int']>;
   blocks?: Maybe<Scalars['Int']>;
   atimeMs?: Maybe<Scalars['Float']>;
@@ -1374,7 +1374,7 @@ export type QueryStaticImageArgs = {
   uid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   size?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -1563,8 +1563,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   author?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
-  tags?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FileFilterInput = {
@@ -1920,8 +1920,8 @@ export type FileFieldsEnum =
   | 'childrenMarkdownRemark___frontmatter___image___childrenAuthorsJson'
   | 'childrenMarkdownRemark___frontmatter___image___id'
   | 'childrenMarkdownRemark___frontmatter___image___children'
-  | 'childrenMarkdownRemark___frontmatter___tags'
   | 'childrenMarkdownRemark___frontmatter___category'
+  | 'childrenMarkdownRemark___frontmatter___tags'
   | 'childrenMarkdownRemark___excerpt'
   | 'childrenMarkdownRemark___rawMarkdownBody'
   | 'childrenMarkdownRemark___fileAbsolutePath'
@@ -2019,8 +2019,8 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___image___childrenAuthorsJson'
   | 'childMarkdownRemark___frontmatter___image___id'
   | 'childMarkdownRemark___frontmatter___image___children'
-  | 'childMarkdownRemark___frontmatter___tags'
   | 'childMarkdownRemark___frontmatter___category'
+  | 'childMarkdownRemark___frontmatter___tags'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -3745,8 +3745,8 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___image___internal___mediaType'
   | 'frontmatter___image___internal___owner'
   | 'frontmatter___image___internal___type'
-  | 'frontmatter___tags'
   | 'frontmatter___category'
+  | 'frontmatter___tags'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -4623,7 +4623,7 @@ export type StaticImageFilterInput = {
   uid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   size?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -4694,7 +4694,7 @@ export type PrivacyPolicyQuery = { splashImage?: Maybe<{ childImageSharp?: Maybe
 export type PostFeaturedFragment = (
   Pick<MarkdownRemark, 'id' | 'excerpt' | 'timeToRead'>
   & { frontmatter?: Maybe<(
-    Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'tags' | 'slug' | 'date'>
+    Pick<MarkdownRemarkFrontmatter, 'title' | 'author' | 'description' | 'tags' | 'slug' | 'date'>
     & { image?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
   )> }
 );
@@ -4702,7 +4702,7 @@ export type PostFeaturedFragment = (
 export type PostFragment = (
   Pick<MarkdownRemark, 'id' | 'excerpt' | 'html' | 'timeToRead'>
   & { frontmatter?: Maybe<(
-    Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'tags' | 'slug' | 'date'>
+    Pick<MarkdownRemarkFrontmatter, 'title' | 'author' | 'description' | 'tags' | 'slug' | 'date'>
     & { image?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
   )> }
 );
