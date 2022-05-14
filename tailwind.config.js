@@ -1,6 +1,6 @@
 module.exports = {
   darkMode: 'class',
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       sans: [
@@ -79,11 +79,6 @@ module.exports = {
         }
       }),
     },
-  },
-  variants: {
-    extend: {
-      typography: ['dark']
-    }
   },
   plugins: [
     require('@tailwindcss/typography'),
